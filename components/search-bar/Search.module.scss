@@ -1,0 +1,13 @@
+.searchbar{
+    background-color:transparent;
+    border:none;
+    form{
+        display: flex;
+        justify-content:space-between;
+        border: 2px solid green;
+        border-radius: 4px;
+        input, button{
+            border:none;
+        }
+    }
+}
