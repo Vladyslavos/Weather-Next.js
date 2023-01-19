@@ -1,13 +1,21 @@
 .searchbar{
     background-color:transparent;
-    border:none;
+    color: #DBFF43;
+    padding: 50px 0;
     form{
         display: flex;
         justify-content:space-between;
-        border: 2px solid green;
+        border: 2px solid #ffff;
         border-radius: 4px;
+        align-items:center;
         input, button{
             border:none;
+            outline: none;
+            padding: 5px 4px;
+            height:30px;
+            font-weight:bold;
+            color: #DBFF43;
+            cursor:pointer;
         }
     }
 }

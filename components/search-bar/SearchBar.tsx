@@ -5,12 +5,14 @@ import axios from "axios";
 import { IData } from "../../types/type";
 import WeatherInfo from "../weather-info/WeatherInfo";
 import styles from "../search-bar/Search.module.scss";
+import Notfound from "../Notfound";
 
 export default function SearchBar() {
-  const [location, setLocation] = React.useState<string>("rome");
+  const [location, setLocation] = React.useState<string>("");
   const [loading, setLoading] = React.useState<boolean>(false);
   const [data, setData] = React.useState<IData>();
   const url: string = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${process.env.NEXT_PUBLIC_WEATHER_KEY}`;
+  const inputRef = React.useRef<HTMLInputElement>(null);
 
   const fetchData = (e: React.FormEvent) => {
     try {
@@ -18,12 +20,18 @@ export default function SearchBar() {
       setLoading(true);
       axios.get(url).then((res) => {
         setData(res.data);
-        console.log(data);
       });
+      setLocation("");
     } catch (e) {
-      console.log("error");
+      console.warn("error");
     }
   };
+
+  React.useEffect(() => {
+    if (inputRef.current) {
+      inputRef.current.focus();
+    }
+  }, []);
 
   return (
     <div className={styles.searchbar}>
@@ -37,7 +45,7 @@ export default function SearchBar() {
             onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
               setLocation(e.target.value);
             }}
-            onKeyDown={fetchData}
+            ref={inputRef}
           />
           <button onClick={fetchData}>
             <BsSearch />
