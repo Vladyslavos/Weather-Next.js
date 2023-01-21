@@ -9,6 +9,7 @@ interface IProps {
 }
 
 export default function WeatherInfo({ data }: IProps) {
+  const date = new Date().toLocaleString();
   return (
     <motion.div
       initial="hidden"
@@ -16,6 +17,7 @@ export default function WeatherInfo({ data }: IProps) {
       custom={2}
       variants={textAnimation}
     >
+      <h2>{date}</h2>
       <h1>Current weather in {data?.name}</h1>
       <p>{data?.weather?.[0].main}</p>
       <p>{data?.main.feels_like}</p>
