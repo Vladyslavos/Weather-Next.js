@@ -6,6 +6,9 @@ import { IData } from "../../types/type";
 import WeatherInfo from "../weather-info/WeatherInfo";
 import styles from "../search-bar/Search.module.scss";
 import Notfound from "../Notfound";
+import Spinner from "../spinner/Spinner";
+import { textAnimation } from "../../features/Animation";
+import { motion } from "framer-motion";
 
 export default function SearchBar() {
   const [location, setLocation] = React.useState<string>("");
@@ -22,6 +25,7 @@ export default function SearchBar() {
         setData(res.data);
       });
       setLocation("");
+      setLoading(false);
     } catch (e) {
       console.warn("error");
     }
@@ -34,8 +38,15 @@ export default function SearchBar() {
   }, []);
 
   return (
-    <div className={styles.searchbar}>
+    <motion.div
+      className={styles.searchbar}
+      initial="hidden"
+      whileInView="visible"
+      custom={2}
+      variants={textAnimation}
+    >
       <Head>Weather on Next</Head>
+      {loading && <Spinner />}
       <div className={styles.search}>
         <form>
           <input
@@ -53,6 +64,6 @@ export default function SearchBar() {
         </form>
       </div>
       {data && <WeatherInfo data={data} />}
-    </div>
+    </motion.div>
   );
 }
