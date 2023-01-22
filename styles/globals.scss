@@ -26,6 +26,14 @@ body {
         animation-delay: -30s;
         animation-direction: reverse;
     }
+    .error{
+        display: flex;
+        justify-content:center;
+        padding-top:140px;
+        font-weight:bold;
+        font-size: 90px;
+        color: #252525;
+    }
   }
   
   @keyframes theme {

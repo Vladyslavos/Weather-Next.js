@@ -3,13 +3,12 @@ import { IData } from "../../types/type";
 import Image from "next/image";
 import { textAnimation } from "../../features/Animation";
 import { motion } from "framer-motion";
-
+import Icon from "../icons/Icon";
 interface IProps {
   data: IData;
 }
 
 export default function WeatherInfo({ data }: IProps) {
-  const date = new Date().toLocaleString();
   return (
     <motion.div
       initial="hidden"
@@ -17,7 +16,6 @@ export default function WeatherInfo({ data }: IProps) {
       custom={2}
       variants={textAnimation}
     >
-      <h2>{date}</h2>
       <h1>Current weather in {data?.name}</h1>
       <p>{data?.weather?.[0].main}</p>
       <p>{data?.main.feels_like}</p>
@@ -28,6 +26,7 @@ export default function WeatherInfo({ data }: IProps) {
         height="200"
       />
       <p>{data.main.temp.toFixed(0)}&#176;</p>
+      <Icon />
     </motion.div>
   );
 }

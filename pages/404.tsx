@@ -8,5 +8,5 @@ export default function Error() {
       router.push("/");
     }, 5000);
   }, [router]);
-  return <div className="error">Error 404, you will be redirected</div>;
+  return <div className="error">Error 404, you will be redirected↪️</div>;
 }

@@ -5,10 +5,10 @@ import axios from "axios";
 import { IData } from "../../types/type";
 import WeatherInfo from "../weather-info/WeatherInfo";
 import styles from "../search-bar/Search.module.scss";
-import Notfound from "../Notfound";
 import Spinner from "../spinner/Spinner";
 import { textAnimation } from "../../features/Animation";
 import { motion } from "framer-motion";
+import Icon from "../icons/Icon";
 
 export default function SearchBar() {
   const [location, setLocation] = React.useState<string>("");
@@ -64,6 +64,7 @@ export default function SearchBar() {
         </form>
       </div>
       {data && <WeatherInfo data={data} />}
+      {!data && <Icon />}
     </motion.div>
   );
 }
