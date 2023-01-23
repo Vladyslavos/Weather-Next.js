@@ -1,11 +1,20 @@
 import React from "react";
+import styles from "../icons/Icon.module.scss";
+import { textAnimation } from "../../features/Animation";
+import { motion } from "framer-motion";
 
 export default function Icon() {
   return (
-    <div>
-      <div className="stage">
+    <motion.div
+      initial="hidden"
+      whileInView="visible"
+      custom={3}
+      variants={textAnimation}
+    >
+      <div className={styles.stage}>
+        <h2>Check weather in your city</h2>
         <svg
-          className="thunder-cloud"
+          className={styles.thunderCloud}
           xmlns="http://www.w3.org/2000/svg"
           xmlnsXlink="http://www.w3.org/1999/xlink"
           viewBox="0 0 512 512"
@@ -19,19 +28,19 @@ export default function Icon() {
 		c61.8,0,112-50.2,112-112S461.8,64,400,64z"
           />
           <polygon
-            className="bolt"
+            className={styles.bolt}
             points="192,352 224,384 192,480 288,384 256,352 288,256 "
           />
         </svg>
 
         <svg
-          className="rain-cloud"
+          className={styles.rainCloud}
           xmlns="http://www.w3.org/2000/svg"
           xmlnsXlink="http://www.w3.org/1999/xlink"
           viewBox="0 0 512 512"
         >
           <path
-            className="raindrop-one"
+            className={styles.raindropOne}
             d="M96,384c0,17.7,14.3,32,32,32s32-14.3,32-32s-32-64-32-64S96,366.3,96,384z"
           />
           <path
@@ -53,7 +62,7 @@ export default function Icon() {
         </svg>
 
         <svg
-          className="snow-cloud"
+          className={styles.snowCloud}
           xmlns="http://www.w3.org/2000/svg"
           xmlnsXlink="http://www.w3.org/1999/xlink"
           viewBox="0 0 512 512"
@@ -68,7 +77,7 @@ export default function Icon() {
           />
 
           <path
-            className="snowflake-one"
+            className={styles.snowFlakeOne}
             d="M131.8,349.9c-1.5-5.6-7.3-8.9-12.9-7.4l-11.9,3.2c-1.1-1.5-2.2-3-3.6-4.4c-1.4-1.4-2.9-2.6-4.5-3.6l3.2-11.9
 	c1.5-5.6-1.8-11.4-7.4-12.9c-5.6-1.5-11.4,1.8-12.9,7.4l-3.2,12.1c-3.8,0.3-7.5,1.2-10.9,2.9l-8.8-8.8c-4.1-4.1-10.8-4.1-14.8,0
 	c-4.1,4.1-4.1,10.8,0,14.9l8.8,8.8c-1.6,3.5-2.6,7.2-2.9,11l-12,3.2c-5.6,1.5-9,7.2-7.5,12.9c1.5,5.6,7.3,8.9,12.9,7.4l11.9-3.2
@@ -78,7 +87,7 @@ export default function Icon() {
 	S92.6,366.9,88.6,371z"
           />
           <path
-            className="snowflake-two"
+            className={styles.snowFlakeTwo}
             d="M304.8,437.6l-12.6-7.2c0.4-2.2,0.7-4.4,0.7-6.7c0-2.3-0.3-4.5-0.7-6.7l12.6-7.2c5.9-3.4,7.9-11,4.5-16.8
 	c-3.4-5.9-10.9-7.9-16.8-4.5l-12.7,7.3c-3.4-2.9-7.2-5.2-11.5-6.7v-14.6c0-6.8-5.5-12.3-12.3-12.3s-12.3,5.5-12.3,12.3V389
 	c-4.3,1.5-8.1,3.8-11.5,6.7l-12.7-7.3c-5.9-3.4-13.5-1.4-16.9,4.5c-3.4,5.9-1.4,13.4,4.5,16.8l12.5,7.2c-0.4,2.2-0.7,4.4-0.7,6.7
@@ -88,7 +97,7 @@ export default function Icon() {
 	C268.3,430.5,262.8,436,256,436z"
           />
           <path
-            className="snowflake-three"
+            className={styles.snowFlakeThree}
             d="M474.2,396.2l-12.1-3.2c-0.3-3.8-1.2-7.5-2.9-11l8.8-8.8c4.1-4.1,4.1-10.8,0-14.9c-4.1-4.1-10.7-4.1-14.8,0
 	l-8.8,8.8c-3.5-1.6-7.1-2.6-11-2.9l-3.2-12.1c-1.5-5.6-7.2-8.9-12.9-7.4c-5.6,1.5-8.9,7.3-7.4,12.9l3.2,11.9
 	c-1.6,1.1-3.1,2.3-4.5,3.7c-1.4,1.4-2.5,2.9-3.6,4.5l-11.9-3.2c-5.6-1.5-11.4,1.9-12.9,7.4c-1.5,5.6,1.9,11.4,7.4,12.9l12,3.2
@@ -100,20 +109,20 @@ export default function Icon() {
         </svg>
 
         <svg
-          className="sun-cloud"
+          className={styles.sunCloud}
           xmlns="http://www.w3.org/2000/svg"
           xmlnsXlink="http://www.w3.org/1999/xlink"
           viewBox="0 0 512 512"
         >
           <path
-            className="sun-half"
+            className={styles.sunHalf}
             d="M127.8,259.1c3.1-4.3,6.5-8.4,10-12.3c-6-11.2-9.4-24-9.4-37.7c0-44.1,35.7-79.8,79.8-79.8
         c40,0,73.1,29.4,78.9,67.7c11.4,2.3,22.4,5.7,32.9,10.4c-0.4-29.2-12-56.6-32.7-77.3C266.1,109,238,97.4,208.2,97.4
         c-29.9,0-57.9,11.6-79.1,32.8c-21.1,21.1-32.8,49.2-32.8,79.1c0,17.2,3.9,33.9,11.2,48.9c1.5-0.1,3-0.1,4.4-0.1
         C117.3,258,122.6,258.4,127.8,259.1z"
           />
           <path
-            className="cloud"
+            className={styles.cloud}
             d="M400,256c-5.3,0-10.6,0.4-15.8,1.1c-16.8-22.8-39-40.5-64.2-51.7c-10.5-4.6-21.5-8.1-32.9-10.4
         c-10.1-2-20.5-3.1-31.1-3.1c-45.8,0-88.4,19.6-118.2,52.9c-3.5,3.9-6.9,8-10,12.3c-5.2-0.8-10.5-1.1-15.8-1.1c-1.5,0-3,0-4.4,0.1
         C47.9,258.4,0,307.7,0,368c0,61.8,50.2,112,112,112c13.7,0,27.1-2.5,39.7-7.3c29,25.2,65.8,39.3,104.3,39.3
@@ -125,87 +134,87 @@ export default function Icon() {
           />
 
           <path
-            className="ray ray-one"
+            className={styles.rayOne}
             d="M16,224h32c8.8,0,16-7.2,16-16s-7.2-16-16-16H16c-8.8,0-16,7.2-16,16S7.2,224,16,224z"
           />
           <path
-            className="ray ray-two"
+            className={styles.rayTwo}
             d="M83.5,106.2c6.3,6.2,16.4,6.2,22.6,0c6.3-6.2,6.3-16.4,0-22.6L83.5,60.9c-6.2-6.2-16.4-6.2-22.6,0
         c-6.2,6.2-6.2,16.4,0,22.6L83.5,106.2z"
           />
           <path
-            className="ray ray-three"
+            className={styles.rayThree}
             d="M208,64c8.8,0,16-7.2,16-16V16c0-8.8-7.2-16-16-16s-16,7.2-16,16v32C192,56.8,199.2,64,208,64z"
           />
           <path
-            className="ray ray-four"
+            className={styles.rayFour}
             d="M332.4,106.2l22.6-22.6c6.2-6.2,6.2-16.4,0-22.6c-6.2-6.2-16.4-6.2-22.6,0l-22.6,22.6
         c-6.2,6.2-6.2,16.4,0,22.6S326.2,112.4,332.4,106.2z"
           />
           <path
-            className="ray ray-five"
+            className={styles.rayFive}
             d="M352,208c0,8.8,7.2,16,16,16h32c8.8,0,16-7.2,16-16s-7.2-16-16-16h-32C359.2,192,352,199.2,352,208z"
           />
         </svg>
 
         <svg
-          className="sunshine"
+          className={styles.sunshine}
           xmlns="http://www.w3.org/2000/svg"
           xmlnsXlink="http://www.w3.org/1999/xlink"
           viewBox="0 0 512 512"
         >
           <path
-            className="sun-full"
+            className={styles.sunFull}
             d="M256,144c-61.8,0-112,50.2-112,112s50.2,112,112,112s112-50.2,112-112S317.8,144,256,144z M256,336
         c-44.2,0-80-35.8-80-80s35.8-80,80-80s80,35.8,80,80S300.2,336,256,336z"
           />
           <path
-            className="sun-ray-eight"
+            className={styles.sunRayEight}
             d="M131.6,357.8l-22.6,22.6c-6.2,6.2-6.2,16.4,0,22.6s16.4,6.2,22.6,0l22.6-22.6c6.2-6.3,6.2-16.4,0-22.6
         C147.9,351.6,137.8,351.6,131.6,357.8z"
           />
           <path
-            className="sun-ray-seven"
+            className={styles.sunRaySeven}
             d="M256,400c-8.8,0-16,7.2-16,16v32c0,8.8,7.2,16,16,16s16-7.2,16-16v-32C272,407.2,264.8,400,256,400z"
           />
           <path
-            className="sun-ray-six"
+            className={styles.sunRaySix}
             d="M380.5,357.8c-6.3-6.2-16.4-6.2-22.6,0c-6.3,6.2-6.3,16.4,0,22.6l22.6,22.6c6.2,6.2,16.4,6.2,22.6,0
         s6.2-16.4,0-22.6L380.5,357.8z"
           />
           <path
-            className="sun-ray-five"
+            className={styles.sunRayFive}
             d="M448,240h-32c-8.8,0-16,7.2-16,16s7.2,16,16,16h32c8.8,0,16-7.2,16-16S456.8,240,448,240z"
           />
           <path
-            className="sun-ray-four"
+            className={styles.sunRayFour}
             d="M380.4,154.2l22.6-22.6c6.2-6.2,6.2-16.4,0-22.6s-16.4-6.2-22.6,0l-22.6,22.6c-6.2,6.2-6.2,16.4,0,22.6
         C364.1,160.4,374.2,160.4,380.4,154.2z"
           />
           <path
-            className="sun-ray-three"
+            className={styles.sunRayThree}
             d="M256,112c8.8,0,16-7.2,16-16V64c0-8.8-7.2-16-16-16s-16,7.2-16,16v32C240,104.8,247.2,112,256,112z"
           />
           <path
-            className="sun-ray-two"
+            className={styles.sunRayTwo}
             d="M131.5,154.2c6.3,6.2,16.4,6.2,22.6,0c6.3-6.2,6.3-16.4,0-22.6l-22.6-22.6c-6.2-6.2-16.4-6.2-22.6,0
         c-6.2,6.2-6.2,16.4,0,22.6L131.5,154.2z"
           />
           <path
-            className="sun-ray-one"
+            className={styles.sunRayThree}
             d="M112,256c0-8.8-7.2-16-16-16H64c-8.8,0-16,7.2-16,16s7.2,16,16,16h32C104.8,272,112,264.8,112,256z"
           />
         </svg>
 
         <svg
-          className="windy-cloud"
+          className={styles.windyCloud}
           xmlns="http://www.w3.org/2000/svg"
           xmlnsXlink="http://www.w3.org/1999/xlink"
           viewBox="0 0 512 512"
         >
-          <g className="cloud-wrap">
+          <g className={styles.cloudWrap}>
             <path
-              className="cloud"
+              className={styles.cloud}
               d="M417,166.1c-24-24.5-57.1-38.8-91.7-38.8c-34.6,0-67.7,14.2-91.7,38.8c-52.8,2.5-95,46.2-95,99.6
     c0,55,44.7,99.7,99.7,99.7c5.8,0,11.6-0.5,17.3-1.5c20.7,13.5,44.9,20.9,69.7,20.9c24.9,0,49.1-7.3,69.8-20.9
     c5.7,1,11.5,1.5,17.3,1.5c54.9,0,99.6-44.7,99.6-99.7C512,212.3,469.8,168.5,417,166.1z M412.4,333.3c-8.3,0-16.4-1.5-24-4.4
@@ -215,24 +224,19 @@ export default function Icon() {
             />
           </g>
           <path
-            className="wind-three"
+            className={styles.windThree}
             d="M144,352H16c-8.8,0-16,7.2-16,16s7.2,16,16,16h128c8.8,0,16-7.2,16-16S152.8,352,144,352z"
           />
           <path
-            className="wind-two"
+            className={styles.windTwo}
             d="M16,320h94c8.8,0,16-7.2,16-16s-7.2-16-16-16H16c-8.8,0-16,7.2-16,16S7.2,320,16,320z"
           />
           <path
-            className="wind-one"
+            className={styles.windOne}
             d="M16,256h64c8.8,0,16-7.2,16-16s-7.2-16-16-16H16c-8.8,0-16,7.2-16,16S7.2,256,16,256z"
           />
         </svg>
       </div>
-
-      <p>
-        Disclaimer: Still in beta, Webkit works fine, but Firefox has issues
-        with transform-origin
-      </p>
-    </div>
+    </motion.div>
   );
 }

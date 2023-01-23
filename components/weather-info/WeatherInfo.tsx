@@ -26,7 +26,6 @@ export default function WeatherInfo({ data }: IProps) {
         height="200"
       />
       <p>{data.main.temp.toFixed(0)}&#176;</p>
-      <Icon />
     </motion.div>
   );
 }
