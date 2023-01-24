@@ -24,15 +24,16 @@
 .middle{
     display:flex;
     justify-content:space-around;
+    align-items: center;
     margin-top:20px;
     div{
-        height:90px;
-        width:60px;
+        height:60px;
+        width:110px;
         background-color:rgba(0,0,0,0.3);
         border-radius: 10px;
-        :hover{
-            background-color:rgba(0,0,0,0.9);
-        }
+    }
+    span{
+        font-weight:bold;
     }
 }
 .bottom{

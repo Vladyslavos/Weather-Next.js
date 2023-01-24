@@ -52,16 +52,16 @@ export default function WeatherInfo({ data }: IProps) {
       </motion.div>
       <div className={styles.middle}>
         <div>
-          <span>1</span>
-          <p>gg</p>
+          <p>Min temperature</p>
+          <span>{toCelsium(data.main.temp_min)}&#176;C</span>
         </div>
         <div>
-          <span>2</span>
-          <p>ff</p>
+          <p>Max temperature</p>
+          <span>{toCelsium(data.main.temp_max)}&#176;C</span>
         </div>
         <div>
-          <span>3</span>
-          <p>hh</p>
+          <p>Wind speed</p>
+          <span>{data.wind.speed}km/h</span>
         </div>
       </div>
       <div className={styles.bottom}>
