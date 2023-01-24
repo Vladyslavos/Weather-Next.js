@@ -47,7 +47,7 @@ export default function WeatherInfo({ data }: IProps) {
           />
           <p className={styles.main}>{weather[0].main}</p>
         </div>
-        <p className={styles.temperature}>{toCelsium(main.temp)}&#176;C</p>
+        <p className={styles.temperature}>{toCelsium(main.temp)}&#176;C 🌡️</p>
       </motion.div>
       <motion.div
         className={styles.middle}
