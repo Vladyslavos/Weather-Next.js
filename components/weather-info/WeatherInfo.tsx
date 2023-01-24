@@ -10,8 +10,7 @@ interface IProps {
 }
 
 export default function WeatherInfo({ data }: IProps) {
-  console.log(data);
-
+  const { name, weather, main, wind } = data;
   const toCelsium = function (tempValue: number) {
     return Math.floor(+tempValue.toFixed(0) - 273.15).toFixed(0);
   };
@@ -30,13 +29,13 @@ export default function WeatherInfo({ data }: IProps) {
         variants={textAnimation}
         className={styles.name}
       >
-        Current weather in {data?.name}
+        Current weather in {name}
       </motion.h1>
       <motion.div
         className={styles.top}
         initial="hidden"
         whileInView="visible"
-        custom={3}
+        custom={4}
         variants={textAnimation}
       >
         <div>
@@ -46,38 +45,50 @@ export default function WeatherInfo({ data }: IProps) {
             width="100"
             height="100"
           />
-          <p className={styles.main}>{data?.weather?.[0].main}</p>
+          <p className={styles.main}>{weather[0].main}</p>
         </div>
-        <p className={styles.temperature}>{toCelsium(data.main.temp)}&#176;C</p>
+        <p className={styles.temperature}>{toCelsium(main.temp)}&#176;C</p>
       </motion.div>
-      <div className={styles.middle}>
+      <motion.div
+        className={styles.middle}
+        initial="hidden"
+        whileInView="visible"
+        custom={4}
+        variants={textAnimation}
+      >
         <div>
           <p>Min temperature</p>
-          <span>{toCelsium(data.main.temp_min)}&#176;C</span>
+          <span>{toCelsium(main.temp_min)}&#176;C</span>
         </div>
         <div>
           <p>Max temperature</p>
-          <span>{toCelsium(data.main.temp_max)}&#176;C</span>
+          <span>{toCelsium(main.temp_max)}&#176;C</span>
         </div>
         <div>
           <p>Wind speed</p>
-          <span>{data.wind.speed}km/h</span>
+          <span>{wind.speed}km/h</span>
         </div>
-      </div>
-      <div className={styles.bottom}>
+      </motion.div>
+      <motion.div
+        className={styles.bottom}
+        initial="hidden"
+        whileInView="visible"
+        custom={5}
+        variants={textAnimation}
+      >
         <div>
-          <span>{toCelsium(data.main.feels_like)}&#176;</span>
+          <span>{toCelsium(main.feels_like)}&#176;</span>
           <p>Feels like</p>
         </div>
         <div className="">
-          <span>{data.main.humidity}%</span>
+          <span>{main.humidity}%</span>
           <p>Humidity</p>
         </div>
         <div className="">
-          <span>{data.wind.speed.toFixed(0)} MPH</span>
+          <span>{wind.speed.toFixed(0)} MPH</span>
           <p>Winds</p>
         </div>
-      </div>
+      </motion.div>
     </motion.div>
   );
 }
