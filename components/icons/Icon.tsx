@@ -12,7 +12,7 @@ export default function Icon() {
       variants={textAnimation}
       className={styles.hidden}
     >
-      <h2>Check weather in your city</h2>
+      <h2 className={styles.title}>Check weather in your city☀️</h2>
       <div className={styles.stage}>
         <svg
           className={styles.thunderCloud}
