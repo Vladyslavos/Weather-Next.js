@@ -1,0 +1,50 @@
+.name{
+    margin-top:30px;
+    background-color:rgba(0,0,0,0.3);
+    height:40px;
+    border-radius:10px;
+}
+.top{
+    display:flex;
+    justify-content:space-around;
+    .icon{
+        background-color:rgba(0,0,0,0.3);
+        border-radius:10px;
+    }
+       
+    .main{
+        font-size:36px;
+        font-weight:bold;
+    }
+    .temperature{
+        font-size:120px;
+        font-weight:bold;
+    }
+}
+.middle{
+    display:flex;
+    justify-content:space-around;
+    margin-top:20px;
+    div{
+        height:90px;
+        width:60px;
+        background-color:rgba(0,0,0,0.3);
+        border-radius: 10px;
+        :hover{
+            background-color:rgba(0,0,0,0.9);
+        }
+    }
+}
+.bottom{
+    margin-top:100px;
+    height: 60px;
+    padding: 10px 0;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-around;
+    background-color: rgba(0,0,0,0.3);
+    font-size:25px;
+    span{
+        font-weight:bold;
+    }
+}

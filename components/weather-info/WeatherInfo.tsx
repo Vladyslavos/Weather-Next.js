@@ -1,14 +1,21 @@
 import React from "react";
 import { IData } from "../../types/type";
 import Image from "next/image";
-import { textAnimation } from "../../features/Animation";
+import { textAnimation } from "../../features/animation/Animation";
 import { motion } from "framer-motion";
-import Icon from "../icons/Icon";
+import styles from "../../components/weather-info/WeatherInfo.module.scss";
+
 interface IProps {
   data: IData;
 }
 
 export default function WeatherInfo({ data }: IProps) {
+  console.log(data);
+
+  const toCelsium = function (tempValue: number) {
+    return Math.floor(+tempValue.toFixed(0) - 273.15).toFixed(0);
+  };
+
   return (
     <motion.div
       initial="hidden"
@@ -16,16 +23,61 @@ export default function WeatherInfo({ data }: IProps) {
       custom={2}
       variants={textAnimation}
     >
-      <h1>Current weather in {data?.name}</h1>
-      <p>{data?.weather?.[0].main}</p>
-      <p>{data?.main.feels_like}</p>
-      <Image
-        src={`http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`}
-        alt="weather-img"
-        width="200"
-        height="200"
-      />
-      <p>{data.main.temp.toFixed(0)}&#176;</p>
+      <motion.h1
+        initial="hidden"
+        whileInView="visible"
+        custom={3}
+        variants={textAnimation}
+        className={styles.name}
+      >
+        Current weather in {data?.name}
+      </motion.h1>
+      <motion.div
+        className={styles.top}
+        initial="hidden"
+        whileInView="visible"
+        custom={3}
+        variants={textAnimation}
+      >
+        <div>
+          <Image
+            src={`http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`}
+            alt="weather-img"
+            width="100"
+            height="100"
+          />
+          <p className={styles.main}>{data?.weather?.[0].main}</p>
+        </div>
+        <p className={styles.temperature}>{toCelsium(data.main.temp)}&#176;C</p>
+      </motion.div>
+      <div className={styles.middle}>
+        <div>
+          <span>1</span>
+          <p>gg</p>
+        </div>
+        <div>
+          <span>2</span>
+          <p>ff</p>
+        </div>
+        <div>
+          <span>3</span>
+          <p>hh</p>
+        </div>
+      </div>
+      <div className={styles.bottom}>
+        <div>
+          <span>{toCelsium(data.main.feels_like)}&#176;</span>
+          <p>Feels like</p>
+        </div>
+        <div className="">
+          <span>{data.main.humidity}%</span>
+          <p>Humidity</p>
+        </div>
+        <div className="">
+          <span>{data.wind.speed.toFixed(0)} MPH</span>
+          <p>Winds</p>
+        </div>
+      </div>
     </motion.div>
   );
 }

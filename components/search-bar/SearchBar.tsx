@@ -6,7 +6,7 @@ import { IData } from "../../types/type";
 import WeatherInfo from "../weather-info/WeatherInfo";
 import styles from "../search-bar/Search.module.scss";
 import Spinner from "../spinner/Spinner";
-import { textAnimation } from "../../features/Animation";
+import { textAnimation } from "../../features/animation/Animation";
 import { motion } from "framer-motion";
 import Icon from "../icons/Icon";
 

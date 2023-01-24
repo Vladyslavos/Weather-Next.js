@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "../icons/Icon.module.scss";
-import { textAnimation } from "../../features/Animation";
+import { textAnimation } from "../../features/animation/Animation";
 import { motion } from "framer-motion";
 
 export default function Icon() {
