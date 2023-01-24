@@ -10,9 +10,10 @@ export default function Icon() {
       whileInView="visible"
       custom={3}
       variants={textAnimation}
+      className={styles.hidden}
     >
+      <h2>Check weather in your city</h2>
       <div className={styles.stage}>
-        <h2>Check weather in your city</h2>
         <svg
           className={styles.thunderCloud}
           xmlns="http://www.w3.org/2000/svg"

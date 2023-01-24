@@ -23,3 +23,11 @@
         }
     }
 }
+@media(max-width:600px){
+    .searchbar{
+        .search{
+            display: flex;
+            justify-content: center;
+        }
+    }
+}
